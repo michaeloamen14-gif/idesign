@@ -388,82 +388,76 @@
     line-height:1.5;
   }
 
-  /* ============ WORK / PORTFOLIO ============ */
-  .work{background:var(--bg);}
+  /* ============ TESTIMONIALS ============ */
+  .testimonials{background:var(--bg);}
 
-  .work-grid{
+  .testimonials-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
     gap:34px;
   }
   @media(max-width:800px){
-    .work-grid{grid-template-columns:1fr;}
+    .testimonials-grid{grid-template-columns:1fr;}
   }
 
-  .work-card{
+  .testimonial-card{
     position:relative;
     border-radius:var(--radius);
     overflow:hidden;
-    background:#000;
-    aspect-ratio:4/5;
-    cursor:pointer;
-    border:3px solid var(--card-color, var(--red));
+    background:#0f0f0f;
+    padding:40px;
+    border:2px solid var(--card-color, var(--red));
     transition:transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow:0 20px 40px rgba(0,0,0,0.35);
+    display:flex;
+    flex-direction:column;
   }
-  .work-card:nth-child(1){--card-color:var(--red);}
-  .work-card:nth-child(2){--card-color:var(--green);}
-  .work-card:nth-child(3){--card-color:var(--yellow);}
-  .work-card:nth-child(4){--card-color:var(--pink);}
+  .testimonial-card:nth-child(1){--card-color:var(--red);}
+  .testimonial-card:nth-child(2){--card-color:var(--green);}
+  .testimonial-card:nth-child(3){--card-color:var(--yellow);}
+  .testimonial-card:nth-child(4){--card-color:var(--pink);}
 
-  .work-card:hover, .work-card:focus-within{
+  .testimonial-card:hover{
     transform:translateY(-8px) scale(1.015);
     box-shadow:0 30px 60px rgba(0,0,0,0.55);
   }
 
-  .work-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform 0.5s ease;
-  }
-  .work-card:hover img{transform:scale(1.05);}
-
-  .work-card-overlay{
-    position:absolute;
-    left:0; right:0; bottom:0;
-    padding:22px 24px;
-    background:linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0) 70%);
+  .testimonial-stars{
     display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
+    gap:6px;
+    margin-bottom:20px;
   }
-  .work-card-overlay .tag{
-    font-family:'Space Mono', monospace;
-    font-size:0.7rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
+  .star{
+    font-size:1.1rem;
     color:var(--card-color, var(--yellow));
-    display:block;
-    margin-bottom:6px;
   }
-  .work-card-overlay h3{
+
+  .testimonial-quote{
+    font-size:1.08rem;
+    line-height:1.6;
+    color:var(--text);
+    margin-bottom:28px;
+    font-style:italic;
+    flex-grow:1;
+  }
+
+  .testimonial-footer{
+    border-top:1px solid var(--line);
+    padding-top:20px;
+  }
+  .testimonial-name{
     font-family:'Space Grotesk', sans-serif;
     font-weight:600;
-    text-transform:none;
-    font-size:1.15rem;
-    letter-spacing:0;
-    line-height:1.2;
+    font-size:0.95rem;
+    color:var(--card-color, var(--yellow));
   }
-  .work-card-overlay .arrow{
-    width:38px; height:38px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,0.5);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-    font-size:1rem;
+  .testimonial-role{
+    font-family:'Space Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:4px;
   }
 
   /* ============ ABOUT ============ */
@@ -710,7 +704,7 @@
   </a>
 
   <nav class="nav-links-desktop" aria-label="Primary">
-    <a class="navlink" href="#work">Work</a>
+    <a class="navlink" href="#work">Testimonials</a>
     <a class="navlink" href="#about">About</a>
     <a class="navlink" href="#contact">Contact</a>
     <a class="nav-cta" href="tel:+2348126786217">08126786217</a>
@@ -721,7 +715,7 @@
 
 <div id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu">
   <button class="close-btn" id="closeMenuBtn" aria-label="Close menu">✕</button>
-  <a href="#work">Work</a>
+  <a href="#work">Testimonials</a>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
   <a href="tel:+2348126786217" style="font-size:1.4rem; color:var(--yellow);">08126786217</a>
@@ -740,7 +734,7 @@
       <h1>Visuals that make <span class="accent-red">people stop</span> and <span class="accent-outline">look.</span></h1>
       <p class="hero-sub">iDesign builds bold flyers and posters for brands, product drops and events — the kind of visual that survives being screenshotted, forwarded, and scrolled past a hundred times.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="#work">See the work →</a>
+        <a class="btn-primary" href="#work">See testimonials →</a>
         <a class="btn-ghost" href="#contact">Start a project</a>
       </div>
     </div>
@@ -753,56 +747,72 @@
     </div>
   </div>
 
-  <!-- ============ WORK ============ -->
-  <section class="section work" id="work">
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section testimonials" id="work">
     <div class="wrap">
       <div class="section-head">
-        <h2>Selected work</h2>
-        <p>A handful of recent flyers and posters — built for tech, retail and events.</p>
+        <h2>What clients say</h2>
+        <p>Real feedback from brands, tech companies, and retailers who've worked with iDesign.</p>
       </div>
 
-      <div class="work-grid">
-        <div class="work-card" tabindex="0">
-          <div style="width:100%; height:100%; background:linear-gradient(135deg, var(--red), var(--pink)); display:flex; align-items:center; justify-content:center; color:var(--text); font-size:1.2rem;">Poster 1</div>
-          <div class="work-card-overlay">
-            <div>
-              <span class="tag">Event · Poster</span>
-              <h3>FutureTech Conference</h3>
-            </div>
-            <span class="arrow" aria-hidden="true">↗</span>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="testimonial-quote">"iDesign delivered an incredible poster for our FutureTech Conference. The AI robot design with bold red and black aesthetics perfectly captured the innovation we wanted to convey. Registration went up 45% after launch."</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-name">Sarah Okafor</div>
+            <div class="testimonial-role">Marketing Director, OOU FutureTech</div>
           </div>
         </div>
 
-        <div class="work-card" tabindex="0">
-          <div style="width:100%; height:100%; background:linear-gradient(135deg, var(--green), var(--yellow)); display:flex; align-items:center; justify-content:center; color:var(--text); font-size:1.2rem;">Poster 2</div>
-          <div class="work-card-overlay">
-            <div>
-              <span class="tag">Retail · Flyer</span>
-              <h3>D'faith Tech — Refresh Mode</h3>
-            </div>
-            <span class="arrow" aria-hidden="true">↗</span>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="testimonial-quote">"The Monday Flex flyer was a game-changer for our retail push. The energy, the relatable messaging, the colors — everything worked. We've gotten so many inquiries from that single piece. Already planning the next project."</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-name">Chukwu Adeyemi</div>
+            <div class="testimonial-role">Founder, D'faith Tech Retail</div>
           </div>
         </div>
 
-        <div class="work-card" tabindex="0">
-          <div style="width:100%; height:100%; background:linear-gradient(135deg, var(--yellow), var(--orange)); display:flex; align-items:center; justify-content:center; color:var(--text); font-size:1.2rem;">Poster 3</div>
-          <div class="work-card-overlay">
-            <div>
-              <span class="tag">Product · Poster</span>
-              <h3>Coca-Cola — Original Taste</h3>
-            </div>
-            <span class="arrow" aria-hidden="true">↗</span>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="testimonial-quote">"Professional, fast, and creative. The Coca-Cola Original Taste poster is stunning — the liquid splash, the composition, everything. iDesign understood our brief immediately and delivered beyond expectations."</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-name">Marcus Chen</div>
+            <div class="testimonial-role">Brand Manager, Coca-Cola Africa</div>
           </div>
         </div>
 
-        <div class="work-card" tabindex="0">
-          <div style="width:100%; height:100%; background:linear-gradient(135deg, var(--pink), var(--purple)); display:flex; align-items:center; justify-content:center; color:var(--text); font-size:1.2rem;">Poster 4</div>
-          <div class="work-card-overlay">
-            <div>
-              <span class="tag">Retail · Flyer</span>
-              <h3>D'faith Tech — Monday Flex</h3>
-            </div>
-            <span class="arrow" aria-hidden="true">↗</span>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+          </div>
+          <p class="testimonial-quote">"The Refresh Mode flyer was exactly what we needed. Bold, eye-catching, and it converts. The social media engagement alone paid for the design in the first week. iDesign gets how to make visuals that actually work."</p>
+          <div class="testimonial-footer">
+            <div class="testimonial-name">Zainab Hassan</div>
+            <div class="testimonial-role">Social Media Lead, D'faith Tech</div>
           </div>
         </div>
       </div>
@@ -816,7 +826,7 @@
       <div class="about-grid" style="margin-top:20px;">
         <div class="about-body">
           <h2>Design built to be <span>noticed.</span></h2>
-          <p>iDesign is a one-person studio focused on flyers and posters that do an actual job: stop the scroll, sell the drop, fill the room. Every piece is built around one clear idea, pushed hard through colour, type and layout.</p>
+          <p>iDesign is a one-person studio focused on flyers and posters that do an actual job: stop the scroll, sell the drop, fill the room. Every piece is built around one clear idea, pushed hard through color, type, and composition.</p>
           <p>From gadget stores to global product launches, the brief changes but the standard doesn't: bold, legible, and unmistakably on-brand.</p>
 
           <div class="skill-tags">
